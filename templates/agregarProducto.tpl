@@ -10,7 +10,7 @@
 <div class="wrapper">
   <form id="crearProducto" action="{$home}/guardarProducto" method="post" class="form-signin" enctype="multipart/form-data">
     {foreach from=$productos item=producto}
-    <h2 class="form-signin-heading text-center">Agregar Producto</h2>
+    <h2 class="form-signin-heading text-center">{if isset($producto) && !empty($producto)}Actualizar Producto {else} Crear Producto{/if}</h2>
     <div class="form-group">
       <label for="nombre">Nombre del Producto</label>
       <input type="text" class="form-control" id="nombre" name="nombre" value="{if isset($producto) && !empty($producto)}{$producto['nombre_producto']}{/if}"placeholder="Modelo ..." required>

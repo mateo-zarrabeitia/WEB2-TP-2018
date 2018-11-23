@@ -9,7 +9,7 @@
           <div class="wrapper">
             <form id="crearMarca" action="{$home}/guardarMarca" method="post" class="form-signin">
               {foreach from=$marcas item=marca}
-              <h2 class="form-signin-heading text-center">Agregar Marca</h2>
+              <h2 class="form-signin-heading text-center">{if isset($marca) && !empty($marca)}Actualizar Marca{else}Crear Marca{/if}</h2>
               <div class="form-group">
                         <label for="nombre">Nombre de Marca</label>
                         <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Marca" value="{if isset($marca) && !empty($marca)}{$marca['nombre_marca']}{/if}"required>
