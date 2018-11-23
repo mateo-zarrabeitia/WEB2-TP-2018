@@ -101,11 +101,13 @@
 
     public function editarProducto($params)
     {
+
+      $titulo = "Motos - Casa Blanca | Editar Producto";
       $id_producto = $params[0];
       $producto = $this->modelProducto->getProducto($id_producto);
       $marcas = $this->modelMarca->getMarcas();
       $imagenes = $this->modelImagenes->getImagenes();
-      $this->view->mostrarAgregarProducto($marcas,$producto,$imagenes);
+      $this->view->mostrarAgregarProducto($titulo,$marcas,$producto,$imagenes);
     }
 
     public function guardarProducto(){

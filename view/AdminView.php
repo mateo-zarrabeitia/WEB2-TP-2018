@@ -14,8 +14,6 @@
       $this->smarty->assign('usuario',$_SESSION);
       $this->smarty->assign('marcas',$marcas);
       $this->smarty->assign('Titulo',$titulo);
-      $this->smarty->assign('home',"http://".$_SERVER["SERVER_NAME"] . ":". $_SERVER['SERVER_PORT'] . dirname($_SERVER["PHP_SELF"]));
-      $this->smarty->debugging = true;
       return $this->smarty->display('templates/agregarMarca.tpl');
     }
 
@@ -27,7 +25,6 @@
       $this->smarty->assign('productos',$producto);
       $this->smarty->assign('imagenes',$imagenes);
       $this->smarty->assign('Titulo',$titulo);
-      $this->smarty->assign('home',"http://".$_SERVER["SERVER_NAME"] . ":". $_SERVER['SERVER_PORT'] . dirname($_SERVER["PHP_SELF"]));
       return $this->smarty->display('templates/agregarProducto.tpl');
     }
 
