@@ -15,10 +15,10 @@
     <title>{$Titulo}</title>
 
     <!-- Favicon  -->
-    <link rel="icon" href="img/core-img/iconoMoto.png">
+    <link rel="icon" href="{$home}/img/core-img/iconoMoto.png">
 
     <!-- Core Style CSS -->
-    <link rel="stylesheet" href="css/core-style.css">
+    <link rel="stylesheet" href="{$home}/css/core-style.css">
 
 </head>
 
@@ -31,7 +31,7 @@
         <div class="mobile-nav">
             <!-- Navbar Brand -->
             <div class="amado-navbar-brand">
-                <a class="navegacion" href="home"><img src="img/core-img/logoMoto.png" alt=""></a>
+                <a class="navegacion" href="home"><img src="{$home}/img/core-img/logoMoto.png" alt=""></a>
             </div>
             <!-- Navbar Toggler -->
             <div class="amado-navbar-toggler">

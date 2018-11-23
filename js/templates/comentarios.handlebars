@@ -1,0 +1,24 @@
+{{#each comentarios}}
+<div class="row" style="margin-top: 15px" id="comentario">
+<div class="col-2 centered">
+<div class="thumbnail">
+<img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
+</div>
+</div>
+
+<div class="col-5 centered">
+<div class="panel panel-default">
+<div class="panel-heading">
+<strong>{{email}}</strong> <span class="text-muted">{{fecha}}</span>
+</div>
+<div class="panel-body">
+{{comentario}}
+<p class="pull-right">{{puntaje}}<i class="fas fa-star"></i></p>
+</div>
+</div>
+<span class="idComentario" name= "{{id_comentario}}"></span>
+<a id="administracion" href="{{fk_id_usuario}}" name="{{fk_id_usuario}}" class="user-nav pull-right administracion "><i class="fas fa-trash-alt fa-lg"></i></a>
+</div>
+
+</div>
+{{/each}}

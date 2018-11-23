@@ -1644,7 +1644,7 @@ img {
         border: none;
         border-radius: 0;
         background-color: #f5f7fa;
-        padding: 30px;
+        // padding: 30px;
         color: #6b6b6b;
         font-size: 14px;
     }
@@ -1671,6 +1671,13 @@ img {
             background-color: #f5f7fa;
         }
     }
+
+    #comentario {
+      margin-top: 15px;
+    }
+
+
+
 }
 
 /* ##### The End ##### */

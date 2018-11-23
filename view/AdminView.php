@@ -5,60 +5,37 @@
     {
       parent::__construct();
       $this->smarty->assign('session', 'out');
+        $this->smarty->assign('home',"http://".$_SERVER["SERVER_NAME"] . ":". $_SERVER['SERVER_PORT'] . dirname($_SERVER["PHP_SELF"]));
     }
 
-    function mostrarAdmin($productos,$marcas)
+    public function mostrarAgregarMarcas($titulo,$marcas = '')
     {
-      $this->smarty->assign('home',"http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
-      $this->smarty->assign('productos',$productos);
+      if (isset($_SESSION["USUARIO"]))
+      $this->smarty->assign('usuario',$_SESSION);
       $this->smarty->assign('marcas',$marcas);
-      return $this->smarty->display('templates/Admin/Admin.tpl');
+      $this->smarty->assign('Titulo',$titulo);
+      return $this->smarty->display('templates/agregarMarca.tpl');
     }
 
-    public function mostrarAgregarMarcas($marcas = '')
+    public function mostrarAgregarProducto($titulo,$marcas = '', $producto = '', $imagenes = '')
     {
-      $this->smarty->assign('marcas',$marcas);
-      return $this->smarty->display('templates/Admin/AdminAgregarMarca.tpl');
-    }
-
-    public function mostrarAgregarProducto($marcas = '', $producto = '')
-    {
+      if (isset($_SESSION["USUARIO"]))
+      $this->smarty->assign('usuario',$_SESSION);
   		$this->smarty->assign('marcas',$marcas);
       $this->smarty->assign('productos',$producto);
-      // $this->smarty->debugging = true; 
-
-      return $this->smarty->display('templates/Admin/AdminAgregarProducto.tpl');
-    }
-    public function mostrarListarProducto($productos,$marcas)
-    {
-  		$this->smarty->assign('productos',$productos);
-      $this->smarty->assign('marcas',$marcas);
-      return $this->smarty->display('templates/Admin/AdminListarProductos.tpl');
+      $this->smarty->assign('imagenes',$imagenes);
+      $this->smarty->assign('Titulo',$titulo);
+      return $this->smarty->display('templates/agregarProducto.tpl');
     }
 
-    public function mostrarListarMarca($marcas = '')
+    function mostrarUsuarios($titulo,$usuarios)
     {
-  		$this->smarty->assign('marcas',$marcas);
-      return $this->smarty->display('templates/Admin/AdminListarMarcas.tpl');
-    }
-    function mostrarUsuarios($usuarios)
-    {
+      if (isset($_SESSION["USUARIO"]))
+      $this->smarty->assign('usuario',$_SESSION);
       $this->smarty->assign('usuarios',$usuarios);
-      $this->smarty->display('templates/Admin/Usuarios.tpl');
+      $this->smarty->assign('Titulo',$titulo);
+      $this->smarty->display('templates/Usuarios.tpl');
     }
-
-    function mostrarProducto($productos)
-    {
-      $this->smarty->assign('productos',$productos);
-      $this->smarty->display('templates/Admin/admin.tpl');
-    }
-
-    // function mostrarModificarProducto($id_Marca,$productos){
-    //   $this->smarty->assign('productos', $productos);
-    //   $this->smarty->assign('id_Marcas', $id_Marca);
-    //   $this->smarty->display('templates/admin/modificarProducto.tpl');
-    // }
-
 
   }
  ?>

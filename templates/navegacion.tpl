@@ -6,13 +6,13 @@
     </div>
     <!-- Logo -->
     <div class="logo">
-        <a  class="navegacion" href="home"><img src="img/core-img/logoMoto.png" alt=""></a>
+        <a  class="navegacion" href="{$home}/home"><img src="{$home}/img/core-img/logoMoto.png" alt=""></a>
     </div>
     <!-- Amado Nav -->
     <nav class="amado-nav">
         <ul>
-          <li class="active" id="inicio"><a class="navegacion inicio" href="home">Inicio</a></li>
-          <li class="" id="productos"><a class="navegacion productos" href="productos/todas">Productos</a></li>
+          <li class="{if isset($inicio)} active{/if}" id="inicio"><a class="navegacion inicio" href="{$home}/home">Inicio</a></li>
+          <li class="{if isset($producto)} active {/if}" id="productos"><a class="navegacion productos" href="{$home}/productos">Productos</a></li>
         </ul>
     </nav>
     <!-- Button Group -->
@@ -20,14 +20,15 @@
     <!-- Cart Menu -->
     <div class="cart-fav-search mb-100">
       {if !isset($usuario)}
-        <a href="login" class="user-nav navegacion"><i class="fas fa-user"> </i>    Login</a>
+        <a href="{$home}/login" class="user-nav navegacion"><i class="fas fa-user"> </i>    Login</a>
       {else}
             <a href="#" class="user-nav"><i class="fas fa-user-check"></i>    {$usuario['NOMBRE']}</a>
             {if ({$usuario['ADMIN']} == 1)}
-              <a href="adminAgregarMarca" class="user-nav navegacion "> <i class="fas fa-plus"></i> Marca</a>
-              <a href="adminAgregarProducto" class="user-nav navegacion "> <i class="fas fa-plus"></i> Producto</a>
+              <a href="{$home}/agregarMarca" class="user-nav navegacion "> <i class="fas fa-plus"></i> Marca</a>
+              <a href="{$home}/agregarProducto" class="user-nav navegacion "> <i class="fas fa-plus"></i> Producto</a>
+              <a href="{$home}/adminUsuarios" class="user-nav navegacion "> <i class="fas fa-plus"></i> Usuarios</a>
             {/if}
-            <a href="logout" class="user-nav"> Cerrar Sesion</a>
+            <a href="{$home}/logout" class="user-nav"> Cerrar Sesion</a>
       {/if}
     </div>
     <!-- Social Button -->

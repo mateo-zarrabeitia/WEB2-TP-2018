@@ -1,5 +1,3 @@
-</div>
-
 <!-- ##### Footer Area Start ##### -->
 <footer class="footer_area clearfix">
     <div class="container">
@@ -26,11 +24,11 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#footerNavContent" aria-controls="footerNavContent" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
                             <div class="collapse navbar-collapse" id="footerNavContent">
                                 <ul class="navbar-nav ml-auto">
-                                    <li id="inicio2" class="nav-item active">
-                                        <a class="nav-link navegacion" href="home">Inicio</a>
+                                    <li id="inicio2" class="nav-item {if isset($inicio)} active{/if}">
+                                        <a class="nav-link navegacion" href="{$home}/home">Inicio</a>
                                     </li>
-                                    <li  id="productos2" class="nav-item">
-                                        <a class="nav-link navegacion" href="productos/todas">Productos</a>
+                                    <li  id="productos2" class="nav-item {if isset($producto)} active{/if}">
+                                        <a class="nav-link navegacion" href="{$home}/productos">Productos</a>
                                     </li>
                                 </ul>
                             </div>
@@ -46,16 +44,19 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 <!-- ##### jQuery (Necessary for All JavaScript Plugins) ##### -->
-<script src="js/jquery/jquery.min.js"></script>
+<script src="{$home}/js/jquery/jquery.min.js"></script>
 <!-- Popper js -->
-<script src="js/popper.min.js"></script>
+<script src="{$home}/js/popper.min.js"></script>
 <!-- Bootstrap js -->
-<script src="js/bootstrap.min.js"></script>
+<script src="{$home}/js/bootstrap.min.js"></script>
 <!-- Plugins js -->
-<script src="js/plugins.js"></script>
+<script src="{$home}/js/plugins.js"></script>
 <!-- Active js -->
-<script src="js/active.js"></script>
-<script src="js/motos.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.12/handlebars.js"></script>
+<script src='https://www.google.com/recaptcha/api.js?hl=es'></script>
+<script src="{$home}/js/active.js"></script>
+<script src="{$home}/js/motos.js"></script>
+<script src="{$home}/js/comentarios.js"></script>
 
 
 </body>

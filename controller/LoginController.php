@@ -1,5 +1,6 @@
 <?php
   require_once 'view/LoginView.php';
+  require_once 'view/MotoView.php';
   require_once 'model/UsuarioModel.php';
   require_once 'controller/SecuredController.php';
 
@@ -9,12 +10,14 @@
   {
     //  parent::__construct();
       $this->view = new LoginView();
+      $this->viewMoto = new MotoView();
       $this->model = new UsuarioModel();
+      $this->titulo = "Motos - Casa Blanca | Login";
     }
 
     public function index()
     {
-        $this->view->mostrarLogin();
+        $this->view->mostrarLogin($this->titulo);
     }
 
     function login(){
@@ -26,14 +29,10 @@
             $_SESSION['USUARIO']= $_POST["email"];
             $_SESSION['LAST_ACTIVITY'] = time(); // Comienza el contador
             $_SESSION['ADMIN'] = $user[0]['rol'];
-            // if ($_SESSION['ADMIN'] == 1){
-            //   header('Location: '. HOME .'admin');
-            // } else {
               header('Location: '.HOME);
-            // }
           }
         }
-      $this->view->mostrarLogin();
+      $this->view->mostrarLogin($this->titulo);
     }
 
 
@@ -48,23 +47,20 @@
             session_start();
             $_SESSION['USUARIO']= $userName;
               $_SESSION['NOMBRE'] = $user[0]['nombre'];
+              $_SESSION['ID'] = $user[0]['id_usuario'];
             $_SESSION['LAST_ACTIVITY'] = time(); // Comienza el contador
             $_SESSION['ADMIN'] = $user[0]['rol'];
-            // if ($_SESSION['ADMIN'] == 1){
-            //   header('Location: '. HOME .'admin');
-            // } else {
               header('Location: '.HOME);
-            // }
         }
         else{
-          $this->view->mostrarLogin('Usuario o Password incorrectos');
+          $this->view->mostrarLogin($this->titulo,'Usuario o Password incorrectos');
         }
       }
 
   }
 
     public function registrar(){
-      $this->view->mostrarRegistro();
+      $this->view->mostrarRegistro($this->titulo);
     }
 
     public function crear(){
@@ -73,15 +69,15 @@
       $email = $_POST['email'];
       $passwordsegure = password_hash($password, PASSWORD_DEFAULT);
       $this->model->setUser($nombre,$passwordsegure,$email);
+      $user = $this->model->getUser($email);
       session_start();
       $_SESSION['USUARIO']= $email;
+      $_SESSION['NOMBRE'] = $nombre;
+      $_SESSION['ID'] = $user[0]['id_usuario'];
       $_SESSION['LAST_ACTIVITY'] = time(); // Comienza el contador
-      $_SESSION['ADMIN'] = $user[0]['rol'];
-      if ($_SESSION['ADMIN'] == 1){
-        header('Location: '. HOME .'admin');
-      } else {
-        header('Location: '.HOME);
-      }
+      $_SESSION['ADMIN'] = 2;
+      header('Location: '.HOME);
+
     }
 
     public function destroy()

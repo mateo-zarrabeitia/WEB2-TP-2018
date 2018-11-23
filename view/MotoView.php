@@ -5,6 +5,7 @@
     {
       parent::__construct();
       $this->smarty->assign('session', 'out');
+      $this->smarty->assign('home',"http://".$_SERVER["SERVER_NAME"] . ":". $_SERVER['SERVER_PORT'] . dirname($_SERVER["PHP_SELF"]));
     }
 
     function mostrarIndex($titulo) {
@@ -12,47 +13,48 @@
       if (isset($_SESSION["USUARIO"]))
       $this->smarty->assign('usuario',$_SESSION);
       $this->smarty->assign('Titulo',$titulo);
-      $this->smarty->assign('active',"index");
+      $this->smarty->assign('inicio',"index");
       return $this->smarty->display('templates/index.tpl');
     }
 
 
-    function mostrarProductos($titulo,$productos) {
+    function mostrarProductos($titulo,$productos,$imagenes,$marcas) {
       session_start();
       if (isset($_SESSION["USUARIO"]))
       $this->smarty->assign('usuario',$_SESSION);
       $this->smarty->assign('Titulo',$titulo);
       $this->smarty->assign('productos',$productos);
-      $this->smarty->assign('active',"productos");
-      $this->smarty->assign('home',"http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
+      $this->smarty->assign('marcas',$marcas);
+      $this->smarty->assign('imagenes',$imagenes);
+      $this->smarty->assign('producto',"index");
+      // $this->smarty->debugging = true;
       return $this->smarty->display('templates/productos.tpl');
     }
 
-    function mostrarDetalleProducto($titulo,$productos) {
-      $this->smarty->assign('Titulo',$titulo);
-      $this->smarty->assign('productos',$productos);
-      $this->smarty->assign('active',"productos");
-      $this->smarty->assign('home',"http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
-      // $this->smarty->debugging = true;
-      return $this->smarty->display('templates/detalleProducto.tpl');
-    }
-
-    function mostrarHome()
-    {
-      return $this->smarty->display('templates/home.tpl');
-    }
-    function mostrarFiltros($marcas)
-    {
+    function mostrarProductosMarca($titulo,$productos,$imagenes,$marcas) {
       session_start();
       if (isset($_SESSION["USUARIO"]))
       $this->smarty->assign('usuario',$_SESSION);
+      $this->smarty->assign('Titulo',$titulo);
+      $this->smarty->assign('productos',$productos);
       $this->smarty->assign('marcas',$marcas);
-      return $this->smarty->display('templates/menuFiltros.tpl');
+      $this->smarty->assign('imagenes',$imagenes);
+      $this->smarty->assign('active',"productos");
+      // $this->smarty->debugging = true;
+      return $this->smarty->display('templates/productosFiltrados.tpl');
     }
 
-    function mostrarAnuncio()
-    {
-      return $this->smarty->display('templates/anuncio.tpl');
+
+    function mostrarDetalleProducto($titulo,$productos,$imagenes) {
+      session_start();
+      if (isset($_SESSION["USUARIO"]))
+      $this->smarty->assign('usuario',$_SESSION);
+      $this->smarty->assign('Titulo',$titulo);
+      $this->smarty->assign('productos',$productos);
+      $this->smarty->assign('imagenes',$imagenes);
+      $this->smarty->assign('active',"productos");
+      return $this->smarty->display('templates/detalleProducto.tpl');
     }
+
   }
  ?>
