@@ -82,7 +82,7 @@
       $id_marca = $params[0];
       //echo ($id_Marca);
 			$this->modelMarca->eliminarMarca($id_marca);
-      // header('Location: '. HOME);
+      header('Location: '. HOME);
     }
 
     public function eliminarImagen($params){
@@ -96,7 +96,7 @@
       $id_producto = $params[0];
       //echo ($id_Marca);
 			$this->modelProducto->eliminarProducto($id_producto);
-      // header('Location: '. HOME);
+      header('Location: '. HOME);
     }
 
     public function editarProducto($params)

@@ -11,8 +11,8 @@
                 {foreach from=$marcas item=marca}
                 <li><a class="navegacionFiltrado" name="no" href="{$home}/productosMarca/{$marca['id_marca']}">{$marca['nombre_marca']}</a>
                   {if ({$usuario['ADMIN']} == 1)}
-                   <a href="{$home}/borrarMarca/{$marca['id_marca']}" name="borrar" class="user-nav navegacionFiltrado "><i class="fas fa-trash-alt fa-xs"></i></a>
-                   <a href="{$home}/editarMarca/{$marca['id_marca']}" name="inicio" class="user-nav navegacionFiltrado "><i class="fas fa-pencil-alt fa-xs"></i></a>
+                   <a href="{$home}/borrarMarca/{$marca['id_marca']}" name="borrar" class="user-nav  "><i class="fas fa-trash-alt fa-xs"></i></a>
+                   <a href="{$home}/editarMarca/{$marca['id_marca']}" name="inicio" class="user-nav  "><i class="fas fa-pencil-alt fa-xs"></i></a>
                   {/if}
                 </li>
                 {/foreach}

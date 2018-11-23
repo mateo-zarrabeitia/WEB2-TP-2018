@@ -9,17 +9,13 @@ $(document).ready(function() {
   let name = $('.productoId').attr("name");
   if(name != ''){
     getComentarios(orden,name);
-    // intervaloComentarios = setInterval(() =>  getComentarios(orden,name) , 2000);
   }
 
   $('select#ordenComentarios').on('change',function(){
     orden = $(this).val();
     getComentarios(orden,name);
     clearInterval(intervaloComentarios);
-    // intervaloComentarios = setInterval(() =>  getComentarios(orden,name) , 2000);
   });
-
-
 
   //COMENTARIOS
 
@@ -108,7 +104,6 @@ $(document).ready(function() {
       "comentario": $('.textocomentario').val(),
       "puntaje": $('.puntaje').val()
     }
-    // console.log(JSON.stringify(comentario));
     $.ajax({
       method: "POST",
       url: getAbsolutePath()+"/api/comentarios",

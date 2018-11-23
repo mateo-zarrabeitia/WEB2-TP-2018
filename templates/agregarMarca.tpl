@@ -7,7 +7,7 @@
       <div class="col-12 col-lg-8">
         <div class="checkout_details_area mt-50 clearfix">
           <div class="wrapper">
-            <form id="crearMarca" action="guardarMarca" method="post" class="form-signin">
+            <form id="crearMarca" action="{$home}/guardarMarca" method="post" class="form-signin">
               {foreach from=$marcas item=marca}
               <h2 class="form-signin-heading text-center">Agregar Marca</h2>
               <div class="form-group">

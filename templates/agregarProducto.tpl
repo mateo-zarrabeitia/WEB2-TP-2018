@@ -8,7 +8,7 @@
                       <div class="checkout_details_area mt-50 clearfix">
 
 <div class="wrapper">
-  <form id="crearProducto" action="guardarProducto" method="post" class="form-signin" enctype="multipart/form-data">
+  <form id="crearProducto" action="{$home}/guardarProducto" method="post" class="form-signin" enctype="multipart/form-data">
     {foreach from=$productos item=producto}
     <h2 class="form-signin-heading text-center">Agregar Producto</h2>
     <div class="form-group">
